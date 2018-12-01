@@ -1,0 +1,38 @@
+CREATE sequence GR14_PASSENGERS_SEQ
+
+CREATE trigger BI_GR14_PASSENGERS
+  before insert on GR14_PASSENGERS
+  for each row
+begin
+  select GR14_PASSENGERS_SEQ.nextval into :NEW.gp_pid from dual;
+end;
+
+drop table gr14_passengers
+
+select * from gr14_passengers
+
+select * from gr14_flights
+
+insert into gr14_passengers values('42','Mr','Shubham','Ughade','shubham@gmail.com','Shubham@321','784596321');
+
+CREATE TABLE gr14_passengers (
+    gp_pid number(10),
+    gp_title varchar2(10),
+    gp_fname varchar2(15),
+    gp_lname varchar2(15),
+    gp_email varchar2(25),
+    gp_password varchar2(15),
+    gp_phone varchar2(15),
+    constraint GR14_PASSENGERS_PK PRIMARY KEY (gp_pid)
+);
+
+create table gr14_flights(
+gf_flightnumber varchar2(10) primary key,
+gf_source varchar2(20),
+gf_destination varchar2(20),
+gf_depart varchar(10),
+gf_arrive varchar(10),
+gf_duration varchar(10),
+gf_price number(10),
+gf_flydate Date
+)
