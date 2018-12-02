@@ -44,7 +44,6 @@ public class RegistrationController {
 	public ModelAndView addUser(HttpServletRequest request, HttpServletResponse response,
 			@ModelAttribute("user") User user) {
 		int i = userService.register(user);
-		return new ModelAndView("welcome", "firstname", user.getFname());
+		return new ModelAndView("login");
 	}
-
 }

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" isELIgnored="false" %>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -117,11 +117,11 @@ $(document).ready(function(){
 	});
 </script>
 
-</script>
+
 <style>
 body
 {
-  background:linear-gradient(0deg,rgba(255,161,127,0.3),rgba(0,34,62,0.3)),url(images/seat.jpg);
+   background:linear-gradient(0deg,rgba(255,161,127,0.3),rgba(0,34,62,0.3)),url(images/seat.jpg); 
 /* background-image: url("images/seat.jpg"); */
 background-position: center;
  height: 711px;
@@ -131,31 +131,26 @@ background-position: center;
 }
 .container,h3
 {
- color: #FFE4E1;
+  color: #FFE4E1; 
  font-family:verdana;
 }
 
 </style>
 <body>
-<div style="background-color:orange; height:75px; padding: 5px;">
+ <div style="background-color:orange; height:75px; padding: 5px;"> 
   <h1 align="center"  style="font-size: 35px; color:White" >INDIAJET SEAT SELECTION</h1>
-</div>
+  </div>
 
 <center><br><br>
 <c:forEach begin="1" end="5" var="i" varStatus="loop">
 <c:forEach begin="1" end="5" var="j" varStatus="loop">
- <label class="container"><c:out value = "${i}-${j}"/><input type="checkbox" class="single-checkbox" name="input${i}${j}">
- &nbsp;&nbsp;&nbsp;<span class="checkmark"></span></label>
-  </c:forEach>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <c:forEach begin="6" end="10" var="j" varStatus="loop">
- <label class="container"><c:out value = "${i}-${j}"/><input type="checkbox" class="single-checkbox" name="input${i}${j}">
+ <label class="container"><c:out value = "${i}-${j}"/><input type="checkbox" class="single-checkbox" name="chkbox" value="c1" />
  &nbsp;&nbsp;&nbsp;<span class="checkmark"></span></label>
   </c:forEach><br><br>
 </c:forEach>
 <h3>Number Of Flights to select: ${msg}</h3>
+<c:forEach var="seats"	items="${seat.seatno}">${seats} <br />
+				</c:forEach>
 <div id="container"></div>
 <a href="payment"><input type="button" class="button1" value="continue"></a>
 </center>

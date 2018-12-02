@@ -56,14 +56,14 @@ input[type=text] {
     margin: 8px 0;
     box-sizing: border-box;
     border: none;
-    background-color: white;
-    color: white;
+    
 }
 b{
-color: orange;
+ color: orange;
  font-family:verdana;
- background-color: White;
+ /* background-color: White; */
  font-size: 24px;
+ font-color: black;
 }
 .button1 {
     background-color: orange; /* Orange */
@@ -113,13 +113,13 @@ function change() {
     var value = select.value;
     
     if (value == 1) {
-        toAppend = "<br><br><b>&nbsp;Passenger 1 Name: <input type='text' id='txtbox' required>"; divv.innerHTML=toAppend; return;
+        toAppend = "<br><br><b>&nbsp;<input type='text' id='txtbox' placeholder='Passenger 1 Name' required>"; divv.innerHTML=toAppend; return;
         }
         if (value == 2) {
-            toAppend = "<br><br><b>Passenger 1 Name: <input type='text' id='txtbox' required><br><br>Passenger 2 Name: <input type='text' id='txtbox' required>";divv.innerHTML = toAppend;  return;
+            toAppend = "<br><br><b><input type='text' id='txtbox' placeholder='Passenger 1 Name' required><br><br><input type='text' id='txtbox' placeholder='Passenger 2 Name' required>";divv.innerHTML = toAppend;  return;
         }
         if (value = 3) {
-            toAppend = "<br><br><b>Passenger 1 Name: <input type='text' id='txtbox' required><br><br>Passenger 2 Name: <input type='text' id='txtbox' required><br><br>Passenger 3 Name: <input type='text' id='txtbox' required>";divv.innerHTML = toAppend;  return;
+            toAppend = "<br><br><b><input type='text' id='txtbox' placeholder='Passenger 1 Name' required><br><br><input type='text' id='txtbox' placeholder='Passenger 2 Name' required><br><br><input type='text' id='txtbox' placeholder='Passenger 3 Name' required>";divv.innerHTML = toAppend;  return;
         }
         
 }
