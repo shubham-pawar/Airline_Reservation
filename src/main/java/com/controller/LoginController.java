@@ -23,6 +23,12 @@ public class LoginController {
 	@Autowired
 	UserService userService;
 
+	/**
+	 * 
+	 * @param request
+	 * @param response
+	 * @return mav object
+	 */
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public ModelAndView showLogin(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView("login");
@@ -30,6 +36,13 @@ public class LoginController {
 		return mav;
 	}
 
+	/**
+	 * 
+	 * @param request
+	 * @param response
+	 * @param login
+	 * @return mav object
+	 */
 	@RequestMapping(value = "/loginProcess", method = RequestMethod.POST)
 	public ModelAndView loginProcess(HttpServletRequest request, HttpServletResponse response,
 			@ModelAttribute("login") Login login) {
@@ -37,7 +50,7 @@ public class LoginController {
 		User user = userService.validateUser(login);
 		if (null != user) {
 			mav = new ModelAndView("index2");
-			HttpSession session=request.getSession(true);
+			HttpSession session = request.getSession(true);
 			session.setAttribute("user", user.getFname());
 			// mav.addObject("firstname", user.getFname());
 			return mav;
@@ -48,23 +61,36 @@ public class LoginController {
 		}
 		return mav;
 	}
+
+	/**
+	 * 
+	 * @param request
+	 * @return ModelAndView object to login page
+	 */
 	@RequestMapping(value = "/logout")
 	public ModelAndView Logout(HttpServletRequest request) {
-		HttpSession session= request.getSession(true);
+		HttpSession session = request.getSession(true);
 		session.removeAttribute("user");
 		session.invalidate();
 		return new ModelAndView("login");
-		}
-	
+	}
+
+	/**
+	 * 
+	 * @param request
+	 * @param response
+	 * @param login
+	 * @return mav object and redirecting to login page
+	 */
 	@RequestMapping(value = "/ForgetProcess", method = RequestMethod.POST)
 	public ModelAndView ForgetProcess(HttpServletRequest request, HttpServletResponse response,
 			@ModelAttribute("login") Login login) {
 		ModelAndView mav = null;
 		int user = userService.fogetUser(login);
-			mav = new ModelAndView("login");
-						
-			return mav;
-		
+		mav = new ModelAndView("login");
+
+		return mav;
+
 	}
-	
+
 }

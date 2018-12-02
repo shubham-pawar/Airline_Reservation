@@ -19,16 +19,30 @@ public class FlightController {
 	@Autowired
 	public UserService userService;
 
+	/**
+	 * 
+	 * @return ModelAndView object
+	 */
 	@RequestMapping(value = "/addflight", method = RequestMethod.GET)
 	public ModelAndView addflight() {
 		return new ModelAndView("Display");
 	}
 
+	/**
+	 * 
+	 * @return ModelAndView object
+	 */
 	@RequestMapping(value = "/back", method = RequestMethod.GET)
 	public ModelAndView back() {
 		return new ModelAndView("admin");
 	}
 
+	/**
+	 * 
+	 * @param request
+	 * @param response
+	 * @return mav object 
+	 */
 	@RequestMapping(value = "/FlightDetails", method = RequestMethod.GET)
 	public ModelAndView showRegister(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView("FlightDetails");
@@ -36,6 +50,13 @@ public class FlightController {
 		return mav;
 	}
 
+	/**
+	 * 
+	 * @param request
+	 * @param response
+	 * @param flight
+	 * @return ModelAndView object to admin page
+	 */
 	@RequestMapping(value = "/addProcess", method = RequestMethod.POST)
 	public ModelAndView addUser(HttpServletRequest request, HttpServletResponse response,
 			@ModelAttribute("flight") Flight flight) {

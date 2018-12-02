@@ -20,6 +20,12 @@ public class RegistrationController {
 	@Autowired
 	public UserService userService;
 
+	/**
+	 * 
+	 * @param request
+	 * @param response
+	 * @return mav object
+	 */
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public ModelAndView showRegister(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView("register");
@@ -27,6 +33,13 @@ public class RegistrationController {
 		return mav;
 	}
 
+	/**
+	 * 
+	 * @param request
+	 * @param response
+	 * @param user
+	 * @return ModelAndView and redirecting to welcome page
+	 */
 	@RequestMapping(value = "/registerProcess", method = RequestMethod.POST)
 	public ModelAndView addUser(HttpServletRequest request, HttpServletResponse response,
 			@ModelAttribute("user") User user) {

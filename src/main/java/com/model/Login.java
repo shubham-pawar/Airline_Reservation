@@ -2,6 +2,7 @@ package com.model;
 
 /**
  * Model class for user login
+ * 
  * @author group 14
  *
  */
@@ -21,7 +22,7 @@ public class Login {
 		return password;
 	}
 
-public void setPassword(String password) {
+	public void setPassword(String password) {
 		this.password = MD5.getMd5(password);
 	}
 }

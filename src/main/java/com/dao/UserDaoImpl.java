@@ -33,6 +33,9 @@ public class UserDaoImpl implements UserDao {
 		this.jdbcTemplate = jdbcTemplate;
 	}
 
+	/**
+	 * @return to the login page after particular user registered on website
+	 */
 	public int register(User u) {
 		String query = "insert into gr14_passengers(gp_title,gp_fname,gp_lname,gp_email,gp_password,gp_phone) values('"
 				+ u.getTitle() + "','" + u.getFname() + "','" + u.getLname() + "','" + u.getEmail() + "','"
@@ -40,6 +43,11 @@ public class UserDaoImpl implements UserDao {
 		return jdbcTemplate.update(query);
 	}
 
+	/**
+	 * @param Username:username
+	 *            of particular user and Password:password of particular user
+	 * @return to the index page or adminlogin page
+	 */
 	public User validateUser(Login login) {
 		String sql = "select * from gr14_passengers where gp_fname='" + login.getUsername() + "' and gp_password='"
 				+ login.getPassword() + "'";
@@ -47,6 +55,10 @@ public class UserDaoImpl implements UserDao {
 		return users.size() > 0 ? users.get(0) : null;
 	}
 
+	/**
+	 * @param flight
+	 *            f:The particular flight data to update
+	 */
 	public int add(Flight flight) {
 
 		String query = "insert into gr14_flights(gf_flightnumber,gf_source,gf_destination,gf_depart,gf_arrive,gf_duration,gf_price,gf_flydate) values('"
@@ -57,6 +69,9 @@ public class UserDaoImpl implements UserDao {
 		return jdbcTemplate.update(query);
 	}
 
+	/**
+	 * @return list:The list of all the flights added by admin
+	 */
 	public List<Flight> list() {
 
 		String sql = "select * from gr14_flights";
@@ -77,6 +92,9 @@ public class UserDaoImpl implements UserDao {
 		return listFlight;
 	}
 
+	/**
+	 * @return the flights details to user
+	 */
 	public List<Flight> searchFlight(Flight flight) {
 		// DateFormat df = new SimpleDateFormat("MM-dd-yyyy");
 		String sql = "select * from gr14_flights where gf_source='" + flight.getSource() + "' And gf_destination='"
@@ -123,8 +141,12 @@ public class UserDaoImpl implements UserDao {
 		}
 	}
 
+	/**
+	 * @return to forgot page
+	 */
 	public int forgetUser(Login login) {
-		String query="update gr14_passengers set gp_password='"+ login.getPassword()+"' where gp_fname='"+login.getUsername()+"'";
+		String query = "update gr14_passengers set gp_password='" + login.getPassword() + "' where gp_fname='"
+				+ login.getUsername() + "'";
 		return jdbcTemplate.update(query);
 	}
 }

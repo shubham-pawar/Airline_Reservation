@@ -4,6 +4,7 @@ import java.sql.Date;
 
 /**
  * Model class for add flight form
+ * 
  * @author group 14
  *
  */
@@ -22,6 +23,17 @@ public class Flight {
 	public Flight() {
 	}
 
+	/**
+	 * 
+	 * @param flightnumber
+	 * @param source
+	 * @param destination
+	 * @param depart
+	 * @param arrive
+	 * @param duration
+	 * @param price
+	 * @param flydate
+	 */
 	public Flight(String flightnumber, String source, String destination, String depart, String arrive, String duration,
 			String price, Date flydate) {
 		super();

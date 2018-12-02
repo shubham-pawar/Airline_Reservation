@@ -22,6 +22,12 @@ public class SearchController {
 	@Autowired
 	UserService userService;
 
+	/**
+	 * 
+	 * @param request
+	 * @param response
+	 * @return object mav
+	 */
 	@RequestMapping(value = "/flight", method = RequestMethod.GET)
 	public ModelAndView showLogin(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView("flight");
@@ -29,6 +35,13 @@ public class SearchController {
 		return mav;
 	}
 
+	/**
+	 * 
+	 * @param request
+	 * @param response
+	 * @param flight
+	 * @return object mav
+	 */
 	@RequestMapping(value = "/searchProcess", method = RequestMethod.GET)
 	public ModelAndView loginProcess(HttpServletRequest request, HttpServletResponse response,
 			@ModelAttribute("flight") Flight flight) {

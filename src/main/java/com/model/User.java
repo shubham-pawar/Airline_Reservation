@@ -2,6 +2,7 @@ package com.model;
 
 /**
  * Model class for user registration
+ * 
  * @author group 14
  *
  */
@@ -19,6 +20,16 @@ public class User {
 		super();
 	}
 
+	/**
+	 * 
+	 * @param pid
+	 * @param title
+	 * @param fname
+	 * @param lname
+	 * @param email
+	 * @param password
+	 * @param phone
+	 */
 	public User(int pid, String title, String fname, String lname, String email, String password, String phone) {
 		super();
 		this.pid = pid;
